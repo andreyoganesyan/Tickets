@@ -1,0 +1,105 @@
+[Thu Oct 05 16:42:44 2017] [error] [client ::1] PHP Warning:  require_once(../domain/scheme_domain.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in C:\\apache\\Tickets\\localhost\\www\\api\\scheme.php on line 3
+[Thu Oct 05 16:42:44 2017] [error] [client ::1] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '../domain/scheme_domain.php' (include_path='.;c:\\php\\includes') in C:\\apache\\Tickets\\localhost\\www\\api\\scheme.php on line 3
+[Thu Oct 05 16:42:45 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/
+[Thu Oct 05 16:44:04 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/signup/index
+[Thu Oct 05 17:01:15 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected '}' in C:\\apache\\Tickets\\localhost\\www\\signup\\index.php on line 52
+[Thu Oct 05 17:04:33 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected $end in C:\\apache\\Tickets\\localhost\\source\\scripts\\common.php on line 20
+[Thu Oct 05 17:05:41 2017] [error] [client ::1] (20024)The given path is misformatted or contained invalid characters: Cannot map POST /signup/%3C?=$_SERVER[%27PHP_SELF%27]?%3E HTTP/1.1 to file, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:05:43 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/%3C?=$_SERVER[%27PHP_SELF%27]?%3E
+[Thu Oct 05 17:09:20 2017] [error] [client ::1] (20024)The given path is misformatted or contained invalid characters: Cannot map POST /signup/%3C?=$_SERVER[%27PHP_SELF%27]?%3E HTTP/1.1 to file, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:09:22 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/%3C?=$_SERVER[%27PHP_SELF%27]?%3E
+[Thu Oct 05 17:09:30 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:09:30 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:09:31 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:09:55 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 17:12:07 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 17:12:14 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:12:15 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:12:27 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 17:14:23 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected $end in C:\\apache\\Tickets\\localhost\\www\\signup\\index.php on line 67, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:16:16 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:16:17 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:16:18 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:16:29 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 17:23:05 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:23:16 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 17:23:54 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:23:55 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:24:07 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:24:08 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:24:26 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:24:51 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:24:56 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:25:36 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected T_GLOBAL, expecting ',' or ';' in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 9
+[Thu Oct 05 17:25:38 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:25:52 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 17:26:20 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:13:21 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:13:22 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:13:24 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:13:29 2017] [error] [client ::1] PHP Fatal error:  Call to undefined function mysql_connect() in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 10, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:13:32 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:13:49 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:13:55 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:14:06 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:15:25 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:15:27 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:15:28 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:15:29 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:15:41 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:16:06 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:16:20 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:16:34 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:17:26 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:17:37 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:18:25 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:18:34 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:18:54 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:18:59 2017] [error] [client ::1] PHP Fatal error:  Call to undefined function mysql_connect() in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 10, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:19:02 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:21:55 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:22:01 2017] [error] [client ::1] PHP Fatal error:  Call to undefined function mysql_connect() in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 10, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:22:03 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:22:14 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:22:16 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:22:28 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:23:09 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:23:19 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:24:38 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected '}' in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 13
+[Thu Oct 05 22:24:39 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected '}' in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 13
+[Thu Oct 05 22:24:40 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:25:00 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:25:09 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:28:25 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:28:26 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:28:28 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:28:39 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:29:10 2017] [error] [client ::1] PHP Fatal error:  Call to undefined function mysql_connect() in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 10, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:29:25 2017] [error] [client ::1] PHP Fatal error:  Call to undefined function mysqli_connect() in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 10, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:29:59 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected T_IF in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 11, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:32:19 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected T_IF in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 11, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:39:47 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/index.php
+[Thu Oct 05 22:42:36 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected T_LOGICAL_OR in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 11
+[Thu Oct 05 22:42:37 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected T_LOGICAL_OR in C:\\apache\\Tickets\\localhost\\source\\scripts\\db.php on line 11
+[Thu Oct 05 22:42:38 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:42:55 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:43:05 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:43:06 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:43:23 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:43:24 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:01 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:01 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:02 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:05 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:14 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:15 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:39 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:55 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:45:56 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Thu Oct 05 22:50:44 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:53:14 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 22:54:18 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 23:03:26 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Thu Oct 05 23:09:50 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Fri Oct 06 00:41:20 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Fri Oct 06 01:10:01 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php

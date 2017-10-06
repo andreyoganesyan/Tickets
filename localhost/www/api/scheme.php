@@ -1,6 +1,6 @@
 <?php
 
-require_once "../domain/scheme_domain.php";
+require_once "../../source/domain/scheme_domain.php";
 function get_scheme($id){
 		switch($id){
 			case 1:

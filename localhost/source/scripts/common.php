@@ -6,7 +6,7 @@ function error($msg) {
 <head>
   <script language="JavaScript">
   <!--
-  alert("<?=$msg?>");
+  alert("<?php echo $msg?>");
   history.back();
   //-->
   </script>
@@ -14,7 +14,7 @@ function error($msg) {
 <body>
 </body>
 </html>
-<?
+<?php
 exit;
 }
 ?>
