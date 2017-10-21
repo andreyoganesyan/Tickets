@@ -103,3 +103,30 @@
 [Thu Oct 05 23:09:50 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
 [Fri Oct 06 00:41:20 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
 [Fri Oct 06 01:10:01 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Fri Oct 06 18:34:48 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected T_VARIABLE in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 7
+[Fri Oct 06 18:34:49 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/
+[Fri Oct 06 18:35:13 2017] [error] [client ::1] PHP Parse error:  syntax error, unexpected $end in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 58
+[Fri Oct 06 18:35:43 2017] [error] [client ::1] PHP Notice:  Undefined index: username in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 7
+[Fri Oct 06 18:35:43 2017] [error] [client ::1] PHP Notice:  Undefined index: password in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 8
+[Fri Oct 06 18:38:06 2017] [error] [client ::1] PHP Notice:  Undefined index: username in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 7
+[Fri Oct 06 18:38:06 2017] [error] [client ::1] PHP Notice:  Undefined index: password in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 8
+[Fri Oct 06 18:38:40 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Sun Oct 08 18:34:13 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/login
+[Sun Oct 08 18:34:19 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/login
+[Sun Oct 08 18:35:30 2017] [error] [client ::1] PHP Notice:  Undefined index: username in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 7
+[Sun Oct 08 18:35:30 2017] [error] [client ::1] PHP Notice:  Undefined index: password in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 8
+[Sun Oct 08 18:36:28 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/login/
+[Sun Oct 08 18:36:31 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/
+[Sun Oct 08 18:37:00 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Sun Oct 08 18:37:08 2017] [error] [client ::1] PHP Notice:  Undefined index: username in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 7, referer: http://localhost:7777/signup/index.php
+[Sun Oct 08 18:37:08 2017] [error] [client ::1] PHP Notice:  Undefined index: password in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 8, referer: http://localhost:7777/signup/index.php
+[Sun Oct 08 18:37:23 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/signup/index.php
+[Sun Oct 08 18:42:13 2017] [error] [client ::1] PHP Notice:  Undefined index: username in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 7
+[Sun Oct 08 18:42:13 2017] [error] [client ::1] PHP Notice:  Undefined index: password in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 8
+[Sun Oct 08 18:42:38 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/
+[Sun Oct 08 18:42:42 2017] [error] [client ::1] PHP Notice:  Undefined index: username in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 7
+[Sun Oct 08 18:42:42 2017] [error] [client ::1] PHP Notice:  Undefined index: password in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 8
+[Sun Oct 08 18:42:49 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/index.php
+[Sun Oct 08 18:46:36 2017] [error] [client ::1] PHP Notice:  Undefined index: username in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 7
+[Sun Oct 08 18:46:36 2017] [error] [client ::1] PHP Notice:  Undefined index: password in C:\\apache\\Tickets\\localhost\\source\\scripts\\requires_login.php on line 8
+[Sun Oct 08 18:46:47 2017] [error] [client ::1] File does not exist: C:/apache/Tickets/localhost/www/favicon.ico, referer: http://localhost:7777/index.php
