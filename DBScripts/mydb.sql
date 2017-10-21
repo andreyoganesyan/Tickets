@@ -21,7 +21,7 @@ USE `mydb` ;
 -- Table `mydb`.`Event`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Event` (
-  `idEvent` INT NOT NULL,
+  `idEvent` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idEvent`),
   UNIQUE INDEX `idEvent_UNIQUE` (`idEvent` ASC))
@@ -32,7 +32,8 @@ ENGINE = InnoDB;
 -- Table `mydb`.`User`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`User` (
-  `idUser` INT NOT NULL,
+  `idUser` INT NOT NULL AUTO_INCREMENT,
+  `Password` VARCHAR(64) NOT NULL,
   `Username` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idUser`),
   UNIQUE INDEX `idUser_UNIQUE` (`idUser` ASC))
@@ -43,7 +44,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Scheme_User`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Scheme_User` (
-  `idEvent` INT NOT NULL,
+  `idEvent` INT,
   `idUser` INT NOT NULL,
   PRIMARY KEY (`idEvent`, `idUser`),
   INDEX `idUser_idx` (`idUser` ASC),
@@ -64,7 +65,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Group`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Group` (
-  `idGroup` INT NOT NULL,
+  `idGroup` INT NOT NULL AUTO_INCREMENT,
   `idEvent` INT NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idGroup`),
@@ -82,8 +83,8 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Aisle`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Aisle` (
-  `idAisle` INT NOT NULL,
-  `idEvent` INT NOT NULL,
+  `idAisle` INT NOT NULL AUTO_INCREMENT,
+  `idEvent` INT,
   `Row` INT NOT NULL,
   `Left_Seat` INT NOT NULL,
   PRIMARY KEY (`idAisle`),
@@ -101,9 +102,9 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Reservation`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Reservation` (
-  `idReservation` INT NOT NULL,
+  `idReservation` INT NOT NULL AUTO_INCREMENT,
   `idEvent` INT NOT NULL,
-  `idGroup` INT NOT NULL,
+  `idGroup` INT,
   `Name` VARCHAR(45) NOT NULL,
   `Comment` VARCHAR(45) NULL,
   `Quantity` INT NOT NULL,
@@ -128,10 +129,10 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Seat`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Seat` (
-  `Row` VARCHAR(45) NOT NULL,
-  `Seat` VARCHAR(45) NOT NULL,
-  `idReservation` INT NOT NULL,
-  `idEvent` INT NOT NULL,
+  `Row` INT NOT NULL,
+  `Seat` INT NOT NULL,
+  `idReservation` INT,
+  `idEvent` INT,
   PRIMARY KEY (`Row`, `Seat`),
   INDEX `idReservation_idx` (`idReservation` ASC),
   INDEX `idEvent_idx` (`idEvent` ASC),
