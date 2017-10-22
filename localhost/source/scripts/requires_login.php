@@ -39,7 +39,6 @@ if (!$result) {
 error(mysql_error());
 }
 if (mysql_num_rows($result) == 0) {
-echo ('Ha! loh!');
 unset($_SESSION['username']);
 unset($_SESSION['password']);
 ?>
@@ -56,4 +55,3 @@ unset($_SESSION['password']);
 <?php
 }
 ?>
-
