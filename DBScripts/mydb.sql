@@ -34,7 +34,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   `idUser` INT NOT NULL AUTO_INCREMENT,
   `Password` VARCHAR(64) NOT NULL,
-  `Username` VARCHAR(45) NOT NULL,
+  `Username` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`idUser`),
   UNIQUE INDEX `idUser_UNIQUE` (`idUser` ASC))
 ENGINE = InnoDB;
@@ -43,7 +43,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Scheme_User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Scheme_User` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Event_User` (
   `idEvent` INT,
   `idUser` INT NOT NULL,
   PRIMARY KEY (`idEvent`, `idUser`),
@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Scheme_User` (
   CONSTRAINT `scheme_User_idEvent`
     FOREIGN KEY (`idEvent`)
     REFERENCES `mydb`.`Event` (`idEvent`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `idUser`
     FOREIGN KEY (`idUser`)
     REFERENCES `mydb`.`User` (`idUser`)
@@ -74,8 +74,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Group` (
   CONSTRAINT `Group_idEvent`
     FOREIGN KEY (`idEvent`)
     REFERENCES `mydb`.`Event` (`idEvent`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -87,14 +87,15 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Aisle` (
   `idEvent` INT,
   `Row` INT NOT NULL,
   `Left_Seat` INT NOT NULL,
+  `Width` INT NOT NULL,
   PRIMARY KEY (`idAisle`),
   INDEX `idEvent_idx` (`idEvent` ASC),
   UNIQUE INDEX `idAisle_UNIQUE` (`idAisle` ASC),
   CONSTRAINT `Aisle_idEvent`
     FOREIGN KEY (`idEvent`)
     REFERENCES `mydb`.`Event` (`idEvent`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -115,13 +116,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Reservation` (
   CONSTRAINT `Reservation_idEvent`
     FOREIGN KEY (`idEvent`)
     REFERENCES `mydb`.`Event` (`idEvent`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `Reservation_idGroup`
     FOREIGN KEY (`idGroup`)
     REFERENCES `mydb`.`Group` (`idGroup`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -139,13 +140,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Seat` (
   CONSTRAINT `Seat_idReservation`
     FOREIGN KEY (`idReservation`)
     REFERENCES `mydb`.`Reservation` (`idReservation`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE SET NULL
+    ON UPDATE SET NULL,
   CONSTRAINT `Seat_idEvent`
     FOREIGN KEY (`idEvent`)
     REFERENCES `mydb`.`Event` (`idEvent`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
