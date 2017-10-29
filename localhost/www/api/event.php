@@ -36,14 +36,18 @@ function create_event($name, $idUser){
 	$link = dbConnect("mydb");
 	$result = mysql_query($sql, $link);
 	$idEvent = mysql_insert_id($link);
-	$sql = "insert into event_user (event_user.idEvent,event_user.idUser) values ('$idEvent', '$idUser')";
-	$result = mysql_query($sql, $link);
+	add_access_to_event($idEvent,$idUser);
 }
 function update_event($idEvent,$name){
 	dbConnect("mydb");
 	$sql = "update event
 	  set Name = '$name'
 	  where idEvent = '$idEvent'";
+	$result = mysql_query($sql, $link);
+}
+function add_access_to_event($idEvent,$idUser){
+	dbConnect("mydb");
+	$sql = "insert into event_user (event_user.idEvent,event_user.idUser) values ('$idEvent', '$idUser')";
 	$result = mysql_query($sql, $link);
 }
 
@@ -55,16 +59,18 @@ if (isset($_POST['name'])) {
 		create_event($_POST['name'], $_SESSION['idUser']);
 	}
 } elseif (isset($_POST["idUser"]) and isset($_POST["idEvent"])) {
-
+	add_access_to_event($_POST["idEvent"],$_POST["idUser"]);
 } elseif (isset($_GET["idEvent"])){
 	$value = get_event($_GET["idEvent"]);
 	exit(json_encode($value));
-} else {
-	if (isset($_SESSION["idUser"])) {
+} elseif (isset($_SESSION["idUser"])) {
 		$value = get_events_by_user_id($_SESSION["idUser"]);
 		exit(json_encode($value));
-	}
+} else {
+	header($_SERVER['SERVER_PROTOCOL'].' 400 Bad Request');
+	exit();
 }
+
 
 
 exit();
