@@ -38,7 +38,11 @@ $result = mysql_query($sql);
 if (!$result) {
 error(mysql_error());
 }
-if (mysql_num_rows($result) == 0) {
+if (mysql_num_rows($result) != 0) {
+	$user = mysql_fetch_assoc($result);
+	$_SESSION['idUser'] = $user['idUser'];
+}
+else {
 unset($_SESSION['username']);
 unset($_SESSION['password']);
 ?>
