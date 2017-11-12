@@ -108,6 +108,7 @@ CREATE TABLE IF NOT EXISTS `tickets`.`Reservation` (
   `idCategory` INT,
   `Name` VARCHAR(45) NOT NULL,
   `Comment` VARCHAR(45),
+  `Color` VARCHAR(8),
   `Quantity` INT NOT NULL,
   PRIMARY KEY (`idReservation`),
   UNIQUE INDEX `idReservation_UNIQUE` (`idReservation` ASC),
