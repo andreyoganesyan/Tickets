@@ -2,6 +2,7 @@
 
 require_once "../../source/scripts/db.php";
 checkAccessToEvent();
+require_once "../../source/scripts/halls.php";
 
 function get_event($idEvent){
 	dbConnect("tickets");
@@ -37,6 +38,7 @@ function create_event($name, $idUser){
 	$result = mysql_query($sql, $link);
 	$idEvent = mysql_insert_id($link);
 	add_access_to_event($idEvent,$idUser);
+	fill_kholzy($idEvent);
 }
 function update_event($idEvent,$name){
 	dbConnect("tickets");
@@ -48,7 +50,7 @@ function update_event($idEvent,$name){
 function add_access_to_event($idEvent,$idUser){
 	dbConnect("tickets");
 	$sql = "insert into event_user (event_user.idEvent,event_user.idUser) values ('$idEvent', '$idUser')";
-	$result = mysql_query($sql, $link);
+	$result = mysql_query($sql);
 }
 
 

@@ -3,23 +3,25 @@
 require_once "../../source/scripts/db.php";
 checkAccessToEvent();
 
-function add_reservation($idEvent,$name, $quantity, $idGroup=NULL, $comment = NULL) {
+function add_reservation($idEvent,$name, $quantity, $idGroup=NULL, $comment = NULL,$color = NULL) {
   $idGroup = !is_null($idGroup)? "'$idGroup'" : "NULL";
   $comment = !is_null($comment)? "'$comment'" : "NULL";
+  $color = !is_null($color)? "'color'" : "NULL";
 
-  $sql = "insert into reservation (idEvent, idGroup, Name, Comment, Quantity)
-    values ('$idEvent', $idGroup, '$name', $comment, '$Quantity')";
+  $sql = "insert into reservation (idEvent, idGroup, Name, Comment, Quantity,Color)
+    values ('$idEvent', $idGroup, '$name', $comment, '$Quantity',$color)";
   dbConnect("tickets");
   $result = mysql_query($sql);
 }
 
-function update_reservation($idReservation, $idEvent,$name, $quantity, $idGroup=NULL, $comment = NULL){
+function update_reservation($idReservation, $idEvent,$name, $quantity, $idGroup=NULL, $comment = NULL, $color = NULL){
   $idGroup = !is_null($idGroup)? "'$idGroup'" : "NULL";
   $comment = !is_null($comment)? "'$comment'" : "NULL";
+  $color = !is_null($color)? "'color'" : "NULL";
 
   $sql = "update reservation
-    set idEvent = '$idEvent', idGroup = $idGroup, Name = '$name', Comment = $comment, Quantity = '$quantity'
-    where idReservation = '$idReservation'";
+    set idGroup = $idGroup, Name = '$name', Comment = $comment, Quantity = '$quantity', color = $color
+    where idReservation = '$idReservation' and idEvent = '$idEvent'";
   dbConnect("tickets");
   $result = mysql_query($sql);
 }
@@ -52,12 +54,14 @@ function get_reservation($idEvent,$idReservation){
 if(isset($_POST["idReservation"],$_POST["idEvent"],$_POST["name"],$_POST["quantity"])) {
   update_reservation($_POST["idReservation"],$_POST["idEvent"],$_POST["name"],$_POST["quantity"],
                   isset($_POST["idGroup"])? $_POST["idGroup"] : NULL,
-                  isset($_POST["comment"])? $_POST["comment"] : NULL);
+                  isset($_POST["comment"])? $_POST["comment"] : NULL,
+                  isset($_POST["color"])? $_POST["color"] : NULL);
 }
 elseif(isset($_POST["idEvent"],$_POST["name"],$_POST["quantity"])){
   add_reservation($_POST["idEvent"],$_POST["name"],$_POST["quantity"],
                   isset($_POST["idGroup"])? $_POST["idGroup"] : NULL,
-                  isset($_POST["comment"])? $_POST["comment"] : NULL);
+                  isset($_POST["comment"])? $_POST["comment"] : NULL,
+                  isset($_POST["color"])? $_POST["color"] : NULL);
 }
 elseif(isset($_POST["idEvent"],$_POST["row"],$_POST["seat"])){
   reserve_seat(isset($_POST["idReservation"])? $_POST["idReservation"] : NULL, $_POST["idEvent"],$_POST["row"],$_POST["seat"]);
