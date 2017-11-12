@@ -1,4 +1,4 @@
-use `mydb`;
+use `tickets`;
 
 --addEvent
 insert into event (event.Name)
@@ -9,7 +9,7 @@ insert into event_user
   values ('$idEvent', '$_SESSION[idUser]');
 
 --addGroup
-insert into `mydb`.group (idEvent, Name)
+insert into `tickets`.group (idEvent, Name)
   values ('$_GET[idEvent]', '$_POST[Name]');
 
 --addReservation
@@ -45,11 +45,11 @@ update reservation
   where idReservation = '$_GET[idReservation]';
 
 --delete Group
-delete from `mydb`.group
+delete from `tickets`.group
   where idGroup = '$_POST[idGroup]' and idEvent = '$_POST[idEvent]';
 
 --updateGroup
-update `mydb`.group
+update `tickets`.group
   set Name = '$_POST[Name]'
   where idGroup = '$_POST[idGroup]' and idEvent = '$_POST[idEvent]';
 
@@ -79,7 +79,7 @@ select s.*
 
 --getGroupByEventId
 select g.*
-  from `mydb`.group g, event e
+  from `tickets`.group g, event e
   where g.idEvent = '$_GET[idEvent]';
 
 --deleteEvent

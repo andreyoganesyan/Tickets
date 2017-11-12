@@ -9,7 +9,7 @@ function add_reservation($idEvent,$name, $quantity, $idGroup=NULL, $comment = NU
 
   $sql = "insert into reservation (idEvent, idGroup, Name, Comment, Quantity)
     values ('$idEvent', $idGroup, '$name', $comment, '$Quantity')";
-  dbConnect("mydb");
+  dbConnect("tickets");
   $result = mysql_query($sql);
 }
 
@@ -20,7 +20,7 @@ function update_reservation($idReservation, $idEvent,$name, $quantity, $idGroup=
   $sql = "update reservation
     set idEvent = '$idEvent', idGroup = $idGroup, Name = '$name', Comment = $comment, Quantity = '$quantity'
     where idReservation = '$idReservation'";
-  dbConnect("mydb");
+  dbConnect("tickets");
   $result = mysql_query($sql);
 }
 function reserve_seat($idReservation, $idEvent, $row, $seat){
@@ -30,13 +30,23 @@ function reserve_seat($idReservation, $idEvent, $row, $seat){
     where seat.idEvent = '$idEvent'
     and seat.Row = '$row'
     and seat.Seat = '$seat'";
-  dbConnect("mydb");
+  dbConnect("tickets");
   $result = mysql_query($sql);
 }
 function get_reservations($idEvent){
   $sql = "select * from reservation where idEvent = '$idEvent'";
-  dbConnect("mydb");
+  dbConnect("tickets");
   $result = mysql_query($sql);
+  while ($row = mysql_fetch_assoc($result)) {
+		$reservations[] = $row;
+	}
+  return $reservations;
+}
+function get_reservation($idEvent,$idReservation){
+  $sql = "select * from reservation where idEvent = '$idEvent' and idReservation = '$idReservation'";
+  dbConnect("tickets");
+  $result = mysql_query($sql);
+  return mysql_fetch_assoc($result);
 }
 
 if(isset($_POST["idReservation"],$_POST["idEvent"],$_POST["name"],$_POST["quantity"])) {
@@ -52,8 +62,11 @@ elseif(isset($_POST["idEvent"],$_POST["name"],$_POST["quantity"])){
 elseif(isset($_POST["idEvent"],$_POST["row"],$_POST["seat"])){
   reserve_seat(isset($_POST["idReservation"])? $_POST["idReservation"] : NULL, $_POST["idEvent"],$_POST["row"],$_POST["seat"]);
 }
-elseif(isset($_POST["idEvent"])){
-
+elseif (isset($_GET["idEvent"],$_GET["idReservation"])) {
+  exit(json_encode(get_reservation($_GET["idEvent"],$_GET["idReservation"])));
+}
+elseif(isset($_GET["idEvent"])){
+  exit(json_encode(get_reservations($_POST["idEvent"])));
 }
 else {
   header($_SERVER['SERVER_PROTOCOL'].' 400 Bad Request');

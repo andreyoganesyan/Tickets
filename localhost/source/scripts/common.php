@@ -1,5 +1,5 @@
 <?php // common.php
- 
+
 function error($msg) {
 ?>
 <html>

@@ -31,7 +31,7 @@ exit;
 }
 $_SESSION['username'] = $username;
 $_SESSION['password'] = $password;
-dbConnect("mydb");
+dbConnect("tickets");
 $sql = "SELECT * FROM user WHERE
 username = '$username' AND password = PASSWORD('$password')";
 $result = mysql_query($sql);

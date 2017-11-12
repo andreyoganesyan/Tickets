@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema tickets
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema tickets
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `tickets` DEFAULT CHARACTER SET utf8 ;
+USE `tickets` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Event`
+-- Table `tickets`.`Event`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Event` (
+CREATE TABLE IF NOT EXISTS `tickets`.`Event` (
   `idEvent` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idEvent`),
@@ -29,9 +29,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`User`
+-- Table `tickets`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`User` (
+CREATE TABLE IF NOT EXISTS `tickets`.`User` (
   `idUser` INT NOT NULL AUTO_INCREMENT,
   `Password` VARCHAR(64) NOT NULL,
   `Username` VARCHAR(45) NOT NULL UNIQUE,
@@ -41,48 +41,48 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Scheme_User`
+-- Table `tickets`.`Scheme_User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Event_User` (
+CREATE TABLE IF NOT EXISTS `tickets`.`Event_User` (
   `idEvent` INT,
   `idUser` INT NOT NULL,
   PRIMARY KEY (`idEvent`, `idUser`),
   INDEX `idUser_idx` (`idUser` ASC),
   CONSTRAINT `scheme_User_idEvent`
     FOREIGN KEY (`idEvent`)
-    REFERENCES `mydb`.`Event` (`idEvent`)
+    REFERENCES `tickets`.`Event` (`idEvent`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `idUser`
     FOREIGN KEY (`idUser`)
-    REFERENCES `mydb`.`User` (`idUser`)
+    REFERENCES `tickets`.`User` (`idUser`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Group`
+-- Table `tickets`.`Category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Group` (
-  `idGroup` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `tickets`.`Category` (
+  `idCategory` INT NOT NULL AUTO_INCREMENT,
   `idEvent` INT NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idGroup`),
-  UNIQUE INDEX `idGroup_UNIQUE` (`idGroup` ASC),
+  PRIMARY KEY (`idCategory`),
+  UNIQUE INDEX `idCategory_UNIQUE` (`idCategory` ASC),
   INDEX `idEvent_idx` (`idEvent` ASC),
-  CONSTRAINT `Group_idEvent`
+  CONSTRAINT `Category_idEvent`
     FOREIGN KEY (`idEvent`)
-    REFERENCES `mydb`.`Event` (`idEvent`)
+    REFERENCES `tickets`.`Event` (`idEvent`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Aisle`
+-- Table `tickets`.`Aisle`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Aisle` (
+CREATE TABLE IF NOT EXISTS `tickets`.`Aisle` (
   `idAisle` INT NOT NULL AUTO_INCREMENT,
   `idEvent` INT NOT NULL,
   `Row` INT NOT NULL,
@@ -93,43 +93,43 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Aisle` (
   UNIQUE INDEX `idAisle_UNIQUE` (`idAisle` ASC),
   CONSTRAINT `Aisle_idEvent`
     FOREIGN KEY (`idEvent`)
-    REFERENCES `mydb`.`Event` (`idEvent`)
+    REFERENCES `tickets`.`Event` (`idEvent`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Reservation`
+-- Table `tickets`.`Reservation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Reservation` (
+CREATE TABLE IF NOT EXISTS `tickets`.`Reservation` (
   `idReservation` INT NOT NULL AUTO_INCREMENT,
   `idEvent` INT NOT NULL,
-  `idGroup` INT,
+  `idCategory` INT,
   `Name` VARCHAR(45) NOT NULL,
   `Comment` VARCHAR(45),
   `Quantity` INT NOT NULL,
   PRIMARY KEY (`idReservation`),
   UNIQUE INDEX `idReservation_UNIQUE` (`idReservation` ASC),
   INDEX `idEvent_idx` (`idEvent` ASC),
-  INDEX `idGroup_idx` (`idGroup` ASC),
+  INDEX `idCategory_idx` (`idCategory` ASC),
   CONSTRAINT `Reservation_idEvent`
     FOREIGN KEY (`idEvent`)
-    REFERENCES `mydb`.`Event` (`idEvent`)
+    REFERENCES `tickets`.`Event` (`idEvent`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `Reservation_idGroup`
-    FOREIGN KEY (`idGroup`)
-    REFERENCES `mydb`.`Group` (`idGroup`)
+  CONSTRAINT `Reservation_idCategory`
+    FOREIGN KEY (`idCategory`)
+    REFERENCES `tickets`.`Category` (`idCategory`)
     ON DELETE SET NULL
     ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Seat`
+-- Table `tickets`.`Seat`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Seat` (
+CREATE TABLE IF NOT EXISTS `tickets`.`Seat` (
   `Row` INT NOT NULL,
   `Seat` INT NOT NULL,
   `idReservation` INT,
@@ -139,12 +139,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Seat` (
   INDEX `idEvent_idx` (`idEvent` ASC),
   CONSTRAINT `Seat_idReservation`
     FOREIGN KEY (`idReservation`)
-    REFERENCES `mydb`.`Reservation` (`idReservation`)
+    REFERENCES `tickets`.`Reservation` (`idReservation`)
     ON DELETE SET NULL
     ON UPDATE SET NULL,
   CONSTRAINT `Seat_idEvent`
     FOREIGN KEY (`idEvent`)
-    REFERENCES `mydb`.`Event` (`idEvent`)
+    REFERENCES `tickets`.`Event` (`idEvent`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

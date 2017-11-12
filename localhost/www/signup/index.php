@@ -25,7 +25,7 @@ if (!isset($_POST['submitok'])):
 </html>
 <?php
 else:
-	dbConnect("mydb");
+	dbConnect("tickets");
 	if ($_POST['username']=='' or $_POST['password']=='') {
 		error('One or more required fields were left blank.\n'.
 			  'Please fill them in and try again.');
@@ -41,7 +41,7 @@ else:
 		error('A user already exists with your chosen userid.\n'.
 		'Please try another.');
 	}
-	
+
 	 $sql = "INSERT INTO user SET
 		Username = '$_POST[username]',
 		Password = PASSWORD('$_POST[password]')";
