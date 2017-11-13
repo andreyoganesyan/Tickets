@@ -1,0 +1,32 @@
+.seat,.aisletile {
+  display: inline-block;
+  border: 1px solid black;
+  margin: 0 2.5px;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  border-radius: 10px;
+}
+.aisletile {
+  border-width: 0;
+  width: 30px;
+}
+.seat span {
+  margin-top: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.row {
+  margin:5px auto;
+  white-space: nowrap;
+  text-align: center;
+
+}
+
+#event_view {
+  height: 100vh;
+  position: absolute;
+}
+body {
+  overflow-x:scroll;
+}
