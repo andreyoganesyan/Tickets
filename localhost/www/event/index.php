@@ -81,16 +81,38 @@ if(isset($_GET['idEvent'])){
       }
     }
   }
-  function center_rows(){
-    var width = $("#event_view").width();
-    $(".row").each(function(){
-      row = $(this);
-      row.css("margin-left",(width-row.width())/2+"px");
-    });
-  }
+  var scale = 1.0;
   $(document).ready(function(){
     load_seats();
+    $("#event_view").bind('mousewheel DOMMouseScroll', function(event){
+      scale+=event.originalEvent.wheelDelta/260*scale;
+      if (scale<0.7) scale = 0.7;
+      if (scale>1.5) scale = 1.5;
+      $("#event_view").css("transform","scale("+scale+")")
+      //$(window).scrollTop($(window).scrollTop()/scale);
+      //$(window).scrollLeft($(window).scrollLeft()/scale);
+    });
   });
+  var clicked = false, clickY,clickX;
+$(document).on({
+    'mousemove': function(e) {
+        clicked && updateScrollPos(e);
+    },
+    'mousedown': function(e) {
+        clicked = true;
+        clickY = e.pageY;
+        clickX = e.pageX;
+        console.log(e.pageY);
+    },
+    'mouseup': function() {
+        clicked = false;
+    }
+});
+
+var updateScrollPos = function(e) {
+    $(window).scrollTop($(window).scrollTop() + (clickY - e.pageY));
+    $(window).scrollLeft($(window).scrollLeft() + (clickX - e.pageX));
+}
 
   </script>
   <link rel="stylesheet" type="text/css" href="../resources/css/event.css">

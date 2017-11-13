@@ -1,20 +1,27 @@
 .seat,.aisletile {
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid #ddd;
   margin: 0 2.5px;
   width: 28px;
   height: 28px;
   text-align: center;
   border-radius: 10px;
+  background: white;
+  color:#111;
 }
 .aisletile {
   border-width: 0;
   width: 30px;
+  height: 30px;
+  background: none;
 }
 .seat span {
-  margin-top: 5px;
+  padding-top: 5px;
   display: inline-block;
   vertical-align: middle;
+  user-select: none;
+  font-family: verdana;
+  font-size:14px;
 }
 .row {
   margin:5px auto;
@@ -26,7 +33,15 @@
 #event_view {
   height: 100vh;
   position: absolute;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  padding:500px;
 }
 body {
-  overflow-x:scroll;
+  background: #eee;
+  overflow: hidden;
 }
