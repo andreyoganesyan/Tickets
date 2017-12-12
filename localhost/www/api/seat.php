@@ -5,7 +5,10 @@ checkAccessToEvent();
 
 function get_seats($idEvent){
   dbConnect("tickets");
-  $sql = "select * from seat where idEvent = '$idEvent'";
+  $sql = "select s.*,r.Color from seat s
+          left join reservation r
+          on s.idReservation = r.idReservation
+          where s.idEvent = '$idEvent'";
   $result = mysql_query($sql);
   if ($result){
     while($seat = mysql_fetch_assoc($result)){

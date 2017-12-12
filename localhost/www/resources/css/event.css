@@ -1,6 +1,6 @@
 .seat,.aisletile {
   display: inline-block;
-  border: 1px solid #ddd;
+  box-shadow: 0 0 5px #bbb;
   margin: 0 2.5px;
   width: 28px;
   height: 28px;
@@ -11,12 +11,13 @@
 }
 .aisletile {
   border-width: 0;
+  box-shadow: none;
   width: 30px;
   height: 30px;
   background: none;
 }
 .seat span {
-  padding-top: 5px;
+  padding-top: 4.5px;
   display: inline-block;
   vertical-align: middle;
   user-select: none;
@@ -40,8 +41,86 @@
     -ms-user-select: none;
     user-select: none;
   padding:500px;
+  z-index: 0;
 }
+#side_menu {
+  margin: 0;
+  height: 100vh;
+  width: 280px;
+  position: fixed;
+  background: white;
+  padding: 10px;
+  z-index: 2;
+  transition: margin-left 0.5s,box-shadow 0.5s;
+  box-shadow: 0 0 10px #bbb;
+}
+#menu_opener {
+  position: absolute;
+  margin-left: 275px;
+  margin-top: 5px;
+  width: 16px;
+  height: 20px;
+  padding: 14px 26px 14px 6px;
+  border-radius: 25px;
+  background: skyblue;
+  color: white;
+  font-size: 16px;
+  font-family: Verdana;
+  z-index: 1;
+  transition: transform 0.4s;
+  cursor: pointer;
+}
+#side_menu.hidden {
+  margin-left: -300px;
+  box-shadow: 0 0 0 black;
+
+}
+.hidden #menu_opener {
+  transform:rotate(180deg);
+}
+
 body {
-  background: #eee;
   overflow: hidden;
+  background: #eee;
+}
+
+.reservation_name {
+  font-size: 16px;
+}
+.reservation_quantity {
+  display: inline-block;
+  text-align: right;
+  float:right;
+  font-size: 16px;
+}
+.reservation_div {
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.selected.reservation_div  {
+  background: skyblue;
+}
+.selected.seat{
+  background: skyblue;
+}
+
+#add_reservation_form_div {
+  position: fixed;
+  top: calc(50vh - 70px);
+  left: calc(50vw - 120px);
+  z-index: 10;
+  height: 140px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  background: white;
+  display: none;
+}
+.adding_reservation #add_reservation_form_div, .adding_reservation #dark_background {
+  display: block;
+}
+
+#reservations_container {
+  margin-top:12px;
 }

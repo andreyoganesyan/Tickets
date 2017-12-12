@@ -7,120 +7,70 @@ if(isset($_GET['idEvent'])){
 <!doctype html>
 <html>
 <head>
-  <title>Смотр ивента, хех</title>
+  <title>Распределение билетов</title>
+  <script>
+  var idEvent = <?php echo $idEvent?>;
+  </script>
   <script type="text/JavaScript" src = "../resources/js/jquery-3.2.1.js"></script>
   <script type="text/JavaScript" src = "../resources/js/common.js"></script>
+  <script type="text/JavaScript" src = "../resources/js/event/load.js"></script>
+  <script type="text/JavaScript" src = "../resources/js/event/draw.js"></script>
+  <script type="text/JavaScript" src = "../resources/js/event/scale.js"></script>
+  <script type="text/JavaScript" src = "../resources/js/event/event.js"></script>
   <script>
-    var apilink = "../api/"
-    function load_seats(){
-      $.ajax({
-  			method: "GET",
-  			url: apilink + "seat.php?idEvent=<?php echo $idEvent;?>",
-  			dataType: "json",
-  			cache: false
-  		})
-  		.done(function (seats) {
-  			console.log("Места успешно получены");
-        draw_seats(seats);
-  		})
-  		.fail(function (err) {
-  			console.log("Ошибка во время получения мест");
-  		});
-    }
-    function load_aisles(){
-      $.ajax({
-  			method: "GET",
-  			url: apilink + "aisle.php?idEvent=<?php echo $idEvent;?>",
-  			dataType: "json",
-  			cache: false
-  		})
-  		.done(function (aisles) {
-  			console.log("Проходы успешно получены");
-  			draw_aisles(aisles);
-  		})
-  		.fail(function (err) {
-  			console.log("Ошибка во время получения проходов");
-  		});
-    }
-  </script>
-  <script>
-  var seatMap;
-  function draw_seats(seats){
-    seatMap = new Array();
-    for(var i = 0; i<seats.length;i++){
-      var seat = seats[i];
-      var row = seat["Row"];
-      var seat_n = seat["Seat"];
-      if(seatMap[row-1]==null){
-        seatMap[row-1] = new Array();
-      }
-      seatMap[row-1][seat_n-1] = seat;
-    }
-    for(var row_n = 1; row_n <= seatMap.length; row_n++){
-
-      new_row = $("<div class=\"row\"></div>");
-      $("#event_view").prepend(new_row);
-      for (var seat_n = 1; seat_n <=seatMap[row_n-1].length; seat_n++){
-        new_seat = $("<div class=\"seat\"></div>");
-        new_row.append(new_seat);
-        seatMap[row_n-1][seat_n-1]["div"]=new_seat;
-        new_seat.append("<span>"+seatMap[row_n-1][seat_n-1]["Seat"]+"</span>");
-      }
-    }
-    load_aisles();
-  }
-  function draw_aisles(aisles){
-    for(var i = 0; i<aisles.length;i++){
-      var aisle = aisles[i];
-      var row_n = aisle["Row"];
-      var seat_n = aisle["Left_Seat"]
-      if(seatMap[row_n-1][seat_n-1]!=0){
-        for(var j =0; j<aisle["Width"];j++){
-          seatMap[row_n-1][seat_n-1]["div"].after($("<div class=\"aisletile\"></div>"));
-        }
-      }
-    }
-  }
-  var scale = 1.0;
   $(document).ready(function(){
+    bind_scale_events();
     load_seats();
-    $("#event_view").bind('mousewheel DOMMouseScroll', function(event){
-      scale+=event.originalEvent.wheelDelta/260*scale;
-      if (scale<0.7) scale = 0.7;
-      if (scale>1.5) scale = 1.5;
-      $("#event_view").css("transform","scale("+scale+")")
-      //$(window).scrollTop($(window).scrollTop()/scale);
-      //$(window).scrollLeft($(window).scrollLeft()/scale);
-    });
-  });
-  var clicked = false, clickY,clickX;
-$(document).on({
-    'mousemove': function(e) {
-        clicked && updateScrollPos(e);
-    },
-    'mousedown': function(e) {
-        clicked = true;
-        clickY = e.pageY;
-        clickX = e.pageX;
-        console.log(e.pageY);
-    },
-    'mouseup': function() {
-        clicked = false;
+    load_event_info();
+    $(document).click(function(event) {
+    if(!$(event.target).closest('.seat, .reservation_div').length) {
+        console.log("Deselecting");
+        flush_selection();
     }
-});
-
-var updateScrollPos = function(e) {
-    $(window).scrollTop($(window).scrollTop() + (clickY - e.pageY));
-    $(window).scrollLeft($(window).scrollLeft() + (clickX - e.pageX));
-}
+  });
+  });
+  function adding_reservation(){
+    $("body").toggleClass("adding_reservation");
+  }
+  function toggle_menu(){
+    console.log("Toggled menu");
+    $("#side_menu").toggleClass("hidden");
+  }
+  var numOfColors = 9;
+  var lastColor = Math.floor(Math.random() * numOfColors);
+  console.log(Math.floor(Math.random() * numOfColors));
+  var toBeReserved = new Array();
+  var selectingResId = null;
 
   </script>
+  <link rel="stylesheet" type="text/css" href="../resources/css/common.css">
   <link rel="stylesheet" type="text/css" href="../resources/css/event.css">
 </head>
 <body>
+  <div id="dark_background" onclick="adding_reservation()"></div>
+  <div id="add_reservation_form_div">
+    <div class="input_container">
+      <label>Имя: </label>
+        <input type="text" id="reservation_name_in_form">
+    </div>
+    <div class="input_container">
+      <label>Количество: </label>
+        <input type="text" id="reservation_quantity_in_form">
+    </div>
+    <div class="input_container">
+    <button onclick="add_reservation()">Записать</button>
+    </div>
+  </div>
+  <div id="side_menu">
+    <div id="menu_opener" onclick="toggle_menu()"><</div>
+    <h1 id="event_name_header"></h1>
+    <a class="action_link" onclick="adding_reservation()">Добавить бронь</a>
+    <div id="reservations_container"></div>
+  </div>
   <div id="event_view">
 
   </div>
+
 </body>
 </html>
 

@@ -6,7 +6,29 @@ require_once "../../source/scripts/halls.php";
 
 function get_event($idEvent){
 	dbConnect("tickets");
-	$sql = "select * from event where idEvent = '$idEvent'";
+	$sql = $sql = "select eu.*,nr.Reserved, ifnull(distr.Promised,0) as `Promised`, tot.Total from (
+						select eu_.*,e_.Name from
+						event_user eu_ left join event e_
+						on eu_.idEvent = e_.idEvent
+						where eu_.idEvent='$idEvent') eu
+					left join (
+						select e.idEvent, count(s.idReservation) as `Reserved` from
+						event e left join seat s on s.idEvent=e.idEvent
+						group by e.idEvent
+					) nr
+					on eu.idEvent = nr.idEvent
+					left join (
+						select r.idEvent, sum(r.Quantity) as `Promised` from
+						reservation r
+						group by idEvent
+					) distr
+					on eu.idEvent = distr.idEvent
+					left join (
+						select e.idEvent, count(*) as `Total` from
+						event e left join seat s on s.idEvent=e.idEvent
+						group by e.idEvent
+					) tot
+					on eu.idEvent = tot.idEvent order by idEvent desc";
 	$result = mysql_query($sql);
 	if (!$result){
 		exit(NULL);
@@ -16,11 +38,29 @@ function get_event($idEvent){
 
 function get_events_by_user_id($idUser){
 	dbConnect("tickets");
-	$sql = "select e.*
-	  from event e, event_user eu, user u
-	  where e.idEvent = eu.idEvent
-	    and eu.idUser = u.idUser
-	    and u.idUser = '$idUser'";
+	$sql = "select eu.*,nr.Reserved, ifnull(distr.Promised,0) as `Promised`, tot.Total from (
+						select eu_.*,e_.Name from
+						event_user eu_ left join event e_
+						on eu_.idEvent = e_.idEvent
+						where eu_.idUser='$idUser') eu
+					left join (
+						select e.idEvent, count(s.idReservation) as `Reserved` from
+						event e left join seat s on s.idEvent=e.idEvent
+						group by e.idEvent
+					) nr
+					on eu.idEvent = nr.idEvent
+					left join (
+						select r.idEvent, sum(r.Quantity) as `Promised` from
+						reservation r
+						group by idEvent
+					) distr
+					on eu.idEvent = distr.idEvent
+					left join (
+						select e.idEvent, count(*) as `Total` from
+						event e left join seat s on s.idEvent=e.idEvent
+						group by e.idEvent
+					) tot
+					on eu.idEvent = tot.idEvent order by idEvent desc";
 	$result = mysql_query($sql);
 	if (!$result){
 		exit(NULL);
@@ -76,8 +116,6 @@ else {
 	header($_SERVER['SERVER_PROTOCOL'].' 400 Bad Request');
 	exit();
 }
-
-
 
 exit();
 ?>

@@ -1,0 +1,45 @@
+.event_name {
+  font-size: 24px;
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+
+}
+.event_div {
+  width: 100%;
+  padding: 10px;
+  margin-left: -10px;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.event_info {
+  display: inline-block;
+  text-align: right;
+  float: right;
+  margin-top: 5px;
+}
+
+#add_event_form_div {
+  position: fixed;
+  top: calc(50vh - 70px);
+  left: calc(50vw - 120px);
+  z-index: 10;
+  height: 100px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  background: white;
+  display: none;
+}
+
+#add_event_form_div input {
+  width:198px;
+}
+#add_event_form_div button {
+  width:75px;
+}
+
+.adding_event #add_event_form_div, .adding_event #dark_background{
+  display: block;
+}
